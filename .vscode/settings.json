@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "PS3_4.C": "cpp",
+        "diego.h": "c",
+        "stdlib.h": "c"
+    }
+}
