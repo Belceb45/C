@@ -187,7 +187,7 @@ void menu(Arbol *a)
     }
     else if (opc == 5)
     {
-        arbol_grafico(a);
+        // arbol_grafico(a);
     }
 
     else

@@ -42,7 +42,7 @@ typedef struct arbol
 // Prototipos de funciones
 Arbol *crearArbol();
 Nodo *crearNodo(int dato);
-void insertarNodo(Arbol *a, Nodo *n,int *, int *);
+void insertarNodo(Arbol *a, Nodo *n, int *, int *);
 int estaVacioArbol(Arbol *a);
 void imprimir(Arbol *a);
 void imprimirNodo(Nodo *n);
@@ -68,6 +68,7 @@ int main(int *argc, char *argv[])
     setcolor(1);
     settextstyle(BOLD_FONT, HORIZ_DIR, 3);
     outtextxy(1000, 10, "Rubio Haro Diego");
+
     Arbol *a = crearArbol();
     menu(a);
     return 0;
@@ -98,14 +99,14 @@ Nodo *crearNodo(int dato)
 }
 
 /*Función insertar nodo*/
-void insertarNodo(Arbol *a, Nodo *n,int *x, int *y)
+void insertarNodo(Arbol *a, Nodo *n, int *x, int *y)
 {
     char num[5];
-    int nt=100;
+    int nt = 100;
     int posy = nt - RADIO - 10;
     int errorx = 13;
     int errory = 10;
-    
+
     Nodo *aux, *anterior;
     if (estaVacioArbol(a))
     {
@@ -131,22 +132,23 @@ void insertarNodo(Arbol *a, Nodo *n,int *x, int *y)
                 circle((RESOLUCION_X / 2) + (*x), (nt - (RADIO / 2)) + (*y), RADIO);
                 setcolor(1);
                 sprintf(num, "%d", aux->dato);
-                settextstyle(BOLD_FONT, HORIZ_DIR, 1);
-                outtextxy(((RESOLUCION_X / 2)+*x) - 13, (nt - RADIO)+*y, num);
-                *x = *x + *x;
-                *y = *y + *y;
+
+                // settextstyle(BOLD_FONT, HORIZ_DIR, 1);
+                // outtextxy(((RESOLUCION_X / 2)+(*x)) - 13, (nt - RADIO)+(*y), num);
+                (*x) = (*x) + (*x);
+                (*y) = (*y) + (*y);
             }
             else
             {
                 aux = aux->izquierda;
-                setfillstyle(SOLID_FILL, BLUE);
-                circle((RESOLUCION_X / 2) - (*x), (nt - (RADIO / 2)) + (*y), RADIO);
-                setcolor(1);
-                sprintf(num, "%d", aux->dato);
-                settextstyle(BOLD_FONT, HORIZ_DIR, 1);
-                outtextxy((RESOLUCION_X / 2)+*x - 13, (nt - RADIO)+*y, num);
-                *x = *x + *x;
-                *y = *y + *y;
+                // setfillstyle(SOLID_FILL, BLUE);
+                // circle((RESOLUCION_X / 2) - (*x), (nt - (RADIO / 2)) + (*y), RADIO);
+                // setcolor(1);
+                // sprintf(num, "%d", aux->dato);
+                // settextstyle(BOLD_FONT, HORIZ_DIR, 1);
+                // outtextxy((RESOLUCION_X / 2)+*x - 13, (nt - RADIO)+*y, num);
+                // *x = *x + *x;
+                // *y = *y + *y;
             }
         }
         n->padre = anterior;
@@ -249,7 +251,7 @@ void aleatorios(Arbol *a)
     int y = RADIO * 2 + 10;
     for (int i = 0; i < 50; i++)
     {
-        insertarNodo(a, crearNodo(1 + rand() % 200),&x, &y);
+        insertarNodo(a, crearNodo(1 + rand() % 200), &x, &y);
     }
 }
 
@@ -265,6 +267,6 @@ void datosManuales(Arbol *a)
         int y = RADIO * 2 + 10;
         printf("\nValor [%i]: ", i + 1);
         scanf("%d", &aux);
-        insertarNodo(a, crearNodo(aux),&x,&y);
+        insertarNodo(a, crearNodo(aux), &x, &y);
     }
 }

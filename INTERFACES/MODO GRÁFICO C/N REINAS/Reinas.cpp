@@ -31,7 +31,7 @@ int main()
     cleardevice();
     graf_tablero();
 
-    int tablero[N][N] = {0};
+    int tablero[N][N]={0};
     if (resolver_reinas(tablero, 0))
     {
         printf("Las reinas han sido ubicadas correctamente en el tablero.\n");
@@ -56,7 +56,7 @@ void graf_tablero()
     outtextxy(300, 90, "Reinas que no comen");
     setcolor(RED);
     settextstyle(4, 0, 2);
-    outtextxy(50, 650, "Rubio Haro Diego  2CM3");
+    outtextxy(350, 650, "Rubio Haro Diego  2CM3");
     for (int i = 0; i < N; i++)
     {
         for (int j = 0; j < N; j++)
@@ -143,6 +143,7 @@ bool es_seguro(int tablero[N][N], int fila, int columna)
 bool resolver_reinas(int tablero[N][N], int columna)
 {
     // Caso base: todas las reinas han sido ubicadas
+    printf("\n N: %d  Columna: %d",N,columna);
     if (columna >= N)
     {
         return true;

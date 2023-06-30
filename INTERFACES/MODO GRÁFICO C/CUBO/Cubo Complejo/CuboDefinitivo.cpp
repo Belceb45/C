@@ -229,7 +229,7 @@ void CrearCubo()
           nuevo = (nodo *)malloc(sizeof(nodo));
           nuevo->arriba = NULL;
           nuevo->adelante = NULL;
-          nuevo->info = 5;
+          nuevo->info = 1+rand()%100;
           nuevo->sig = NULL;
           raiz1 = nuevo;
           raiz2 = raiz1;
@@ -238,7 +238,7 @@ void CrearCubo()
           // printf("\nValor raiz3->info: %d", raiz3->info);
           // Se crea un nuevo nodo que será el siguiente del anterior creado
           nuevo = (nodo *)malloc(sizeof(nodo));
-          nuevo->info = x + y + z; // 1+1+1
+          nuevo->info = 1+rand()%100; // 1+1+1
           nuevo->sig = NULL;
           aux->sig = nuevo;
           aux = aux->sig;
@@ -249,14 +249,14 @@ void CrearCubo()
         else
         {
           nuevo = (nodo *)malloc(sizeof(nodo));
-          nuevo->info = x + y + z;
+          nuevo->info = 1+rand()%100;
           nuevo->sig = NULL;
           aux->sig = nuevo;
           aux = aux->sig;
         }
       }
       nuevo = (nodo *)malloc(sizeof(nodo));
-      nuevo->info = x + y;
+      nuevo->info = 1+rand()%100;
       nuevo->arriba = NULL;
       raiz3->arriba = nuevo;
       raiz3 = raiz3->arriba;
@@ -266,7 +266,7 @@ void CrearCubo()
         for (int w = 1; w < 5; w++)
         {
           nuevo = (nodo *)malloc(sizeof(nodo));
-          nuevo->info = x + y + w;
+          nuevo->info = rand()%100;
           nuevo->sig = NULL;
           aux->sig = nuevo;
           aux = aux->sig;
