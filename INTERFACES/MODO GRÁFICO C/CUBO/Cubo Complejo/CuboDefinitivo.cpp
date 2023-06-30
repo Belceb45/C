@@ -107,64 +107,6 @@ int main()
   default:
     break;
   }
-  // cleardevice();
-
-  // int opcion, suma = 0, fila, columna, cara;
-
-  // printf("\nCUBO COMPLETO\n\n1.- Sumar Filas\n2.- Sumar Columnas\n3.- Sumar Caras\n4.- Imprimir valores (terminal)\n5.- Ver Cubo\n");
-  // printf("\nR: ");
-  // scanf("%d", &opcion);
-
-  // if (opcion == 1)
-  // {
-  //   printf("\nFila:");
-  //   scanf("%i", &fila);
-  //   printf("Cara:");
-  //   scanf("%i", &cara);
-  //   for (int x = 1; x <= 5; x++)
-  //   {
-  //     suma = suma + ObtenerDato(fila, x, cara);
-  //   }
-  //   printf("La suma es: %i\n", suma);
-  // }
-  // else if (opcion == 2)
-  // {
-  //   printf("\nColumna:");
-  //   scanf("%i", &columna);
-  //   printf("Cara:");
-  //   scanf("%i", &cara);
-  //   for (int x = 1; x <= 5; x++)
-  //   {
-  //     suma = suma + ObtenerDato(x, columna, cara);
-  //   }
-  //   printf("La suma es: %i\n", suma);
-  // }
-  // else if (opcion == 3)
-  // {
-  //   printf("\nCara:");
-  //   scanf("%i", &cara);
-  //   for (int x = 1; x <= 5; x++)
-  //   {
-  //     for (int y = 1; y <= 5; y++)
-  //     {
-  //       suma = suma + ObtenerDato(x, y, cara);
-  //     }
-  //   }
-  //   printf("La suma es: %i\n", suma);
-  // }
-  // else if (opcion == 4)
-  // {
-  //   // system("clear");
-  //   imprimir();
-  // }
-  // else if (opcion == 5)
-  // {
-  //   grafico();
-  // }
-  // else
-  // {
-  //   printf("\nLa opción que seleccionó no es válida.\n");
-  // }
 }
 int ObtenerDato(int x, int y, int cara)
 {
@@ -229,7 +171,7 @@ void CrearCubo()
           nuevo = (nodo *)malloc(sizeof(nodo));
           nuevo->arriba = NULL;
           nuevo->adelante = NULL;
-          nuevo->info = 1+rand()%100;
+          nuevo->info = 1 + rand() % 100;
           nuevo->sig = NULL;
           raiz1 = nuevo;
           raiz2 = raiz1;
@@ -238,7 +180,7 @@ void CrearCubo()
           // printf("\nValor raiz3->info: %d", raiz3->info);
           // Se crea un nuevo nodo que será el siguiente del anterior creado
           nuevo = (nodo *)malloc(sizeof(nodo));
-          nuevo->info = 1+rand()%100; // 1+1+1
+          nuevo->info = 1 + rand() % 100; // 1+1+1
           nuevo->sig = NULL;
           aux->sig = nuevo;
           aux = aux->sig;
@@ -249,14 +191,14 @@ void CrearCubo()
         else
         {
           nuevo = (nodo *)malloc(sizeof(nodo));
-          nuevo->info = 1+rand()%100;
+          nuevo->info = 1 + rand() % 100;
           nuevo->sig = NULL;
           aux->sig = nuevo;
           aux = aux->sig;
         }
       }
       nuevo = (nodo *)malloc(sizeof(nodo));
-      nuevo->info = 1+rand()%100;
+      nuevo->info = 1 + rand() % 100;
       nuevo->arriba = NULL;
       raiz3->arriba = nuevo;
       raiz3 = raiz3->arriba;
@@ -266,7 +208,7 @@ void CrearCubo()
         for (int w = 1; w < 5; w++)
         {
           nuevo = (nodo *)malloc(sizeof(nodo));
-          nuevo->info = rand()%100;
+          nuevo->info = rand() % 100;
           nuevo->sig = NULL;
           aux->sig = nuevo;
           aux = aux->sig;
