@@ -131,7 +131,7 @@ void insertarNodo(Arbol *a, Nodo *n, int *x, int *y)
                 setfillstyle(SOLID_FILL, BLUE);
                 circle((RESOLUCION_X / 2) + (*x), (nt - (RADIO / 2)) + (*y), RADIO);
                 setcolor(1);
-                sprintf(num, "%d", aux->dato);
+                // sprintf(num, "%d", aux->dato);
 
                 // settextstyle(BOLD_FONT, HORIZ_DIR, 1);
                 // outtextxy(((RESOLUCION_X / 2)+(*x)) - 13, (nt - RADIO)+(*y), num);
@@ -141,20 +141,30 @@ void insertarNodo(Arbol *a, Nodo *n, int *x, int *y)
             else
             {
                 aux = aux->izquierda;
-                // setfillstyle(SOLID_FILL, BLUE);
-                // circle((RESOLUCION_X / 2) - (*x), (nt - (RADIO / 2)) + (*y), RADIO);
-                // setcolor(1);
+
+                setfillstyle(SOLID_FILL, BLUE);
+                circle((RESOLUCION_X / 2) - (*x), (nt - (RADIO / 2)) + (*y), RADIO);
+                setcolor(1);
                 // sprintf(num, "%d", aux->dato);
                 // settextstyle(BOLD_FONT, HORIZ_DIR, 1);
                 // outtextxy((RESOLUCION_X / 2)+*x - 13, (nt - RADIO)+*y, num);
-                // *x = *x + *x;
-                // *y = *y + *y;
+                *x = *x + *x;
+                *y = *y + *y;
             }
         }
         n->padre = anterior;
         if (n->dato > anterior->dato)
         {
             anterior->derecha = n;
+            setfillstyle(SOLID_FILL, BLUE);
+            circle((RESOLUCION_X / 2) + (*x), (nt - (RADIO / 2)) + (*y), RADIO);
+            setcolor(1);
+            // sprintf(num, "%d", aux->dato);
+
+            // settextstyle(BOLD_FONT, HORIZ_DIR, 1);
+            // outtextxy(((RESOLUCION_X / 2)+(*x)) - 13, (nt - RADIO)+(*y), num);
+            (*x) = (*x) + (*x);
+            (*y) = (*y) + (*y);
         }
         else
         {

@@ -38,7 +38,7 @@ nodo *raiz1 = NULL, *raiz2 = NULL, *raiz3 = NULL;
 
 // Prototipos
 
-int menu();
+void menu();
 void suma_filas();
 void suma_columnas();
 void suma_caras();
@@ -54,59 +54,37 @@ void intro();
 int main()
 {
   srand(time(NULL));
-  initwindow(RESOLUCION_X, RESOLUCION_Y, "CUBO");
   intro();
   CrearCubo();
-  int opt;
-  opt = menu();
-  // printf("\nTecla ASCII: %d", opt);
-  printf("\n\n");
   imprimir();
+  menu();
+  int opt;
+  printf("\nR: ");
+  scanf("%d", &opt);
+  printf("\n\n");
   switch (opt)
   {
-  case ASCI_FILAS:
-    initwindow(RESOLUCION_X, RESOLUCION_Y);
+  case 1:
     suma_filas();
-    getch();
-    cleardevice();
-    grafico();
-    getch();
-    closegraph();
     break;
 
-  case ASCI_COLUMNAS:
-    initwindow(RESOLUCION_X, RESOLUCION_Y);
+  case 2:
     suma_columnas();
-    getch();
-    cleardevice();
-    grafico();
-    getch();
-    closegraph();
     break;
 
-  case ASCI_CARAS:
-    initwindow(RESOLUCION_X, RESOLUCION_Y);
+  case 3:
     suma_caras();
-    getch();
-    cleardevice();
-    grafico();
-    getch();
-    closegraph();
     break;
 
-  case ASCI_CUBO_COMPLETO:
-    initwindow(RESOLUCION_X, RESOLUCION_Y);
+  case 4:
     suma_cubo();
-    getch();
-    cleardevice();
-    grafico();
-    getch();
-    closegraph();
+
     break;
 
   default:
     break;
   }
+  grafico();
 }
 int ObtenerDato(int x, int y, int cara)
 {
@@ -257,8 +235,9 @@ void grafico()
 // Función para las filas
 void suma_filas()
 {
+  initwindow(RESOLUCION_X, RESOLUCION_Y);
   int fila, suma = 0, cara;
-  printf("\n\nFila:");
+  printf("Fila:");
   scanf("%i", &fila);
   printf("Cara:");
   scanf("%i", &cara);
@@ -281,15 +260,17 @@ void suma_filas()
   settextstyle(3, 0, 6);
   setcolor(RED);
   outtextxy(330, 300, t);
-
   printf("La suma es: %i\n", suma);
+  getch();
+  closegraph();
 }
 
 // Función para las columnas
 void suma_columnas()
 {
+  initwindow(RESOLUCION_X, RESOLUCION_Y);
   int columna, cara, suma = 0;
-  printf("\n\nColumna:");
+  printf("Columna:");
   scanf("%i", &columna);
   printf("Cara:");
   scanf("%i", &cara);
@@ -310,15 +291,17 @@ void suma_columnas()
   settextstyle(3, 0, 6);
   setcolor(RED);
   outtextxy(330, 300, t);
-
   printf("La suma es: %i\n", suma);
+  getch();
+  closegraph();
 }
 
 // Función que suma caras
 void suma_caras()
 {
+  initwindow(RESOLUCION_X, RESOLUCION_Y);
   int cara, suma = 0;
-  printf("\n\nCara:");
+  printf("Cara:");
   scanf("%i", &cara);
   for (int x = 1; x <= 5; x++)
   {
@@ -338,12 +321,14 @@ void suma_caras()
   settextstyle(3, 0, 6);
   setcolor(RED);
   outtextxy(330, 300, t);
+  getch();
+  closegraph();
 }
 
 // Función que suma el cubo completo
 void suma_cubo()
 {
-
+  initwindow(RESOLUCION_X, RESOLUCION_Y);
   int suma = 0;
   for (int i = 1; i <= 5; i++)
   {
@@ -364,6 +349,8 @@ void suma_cubo()
   outtextxy(10, 200, "SUMA  DEL CUBO: ");
   setcolor(RED);
   outtextxy(450, 200, t);
+  getch();
+  closegraph();
 }
 
 // Función que imprime cada cara
@@ -403,6 +390,7 @@ void grafico_cara(int n, int posx, int posy, int posxO, int posyO)
 // Función intro cubo
 void intro()
 {
+  initwindow(RESOLUCION_X, RESOLUCION_Y, "CUBO");
   int x = -130, y = 0;
   settextstyle(3, 0, 4);
   setcolor(CYAN);
@@ -429,12 +417,13 @@ void intro()
   line(200 + x, 150 + y, 200 + x, 300 + y);
   line(350 + x, 150 + y, 350 + x, 300 + y);
   getch();
-  cleardevice();
+  closegraph();
 }
 
 // Función Menu opciones
-int menu()
+void menu()
 {
+  initwindow(RESOLUCION_X, RESOLUCION_Y, "CUBO");
   settextstyle(3, 0, 4);
   setcolor(CYAN);
   outtextxy(RESOLUCION_X / 3 + 50, 30, "MENU");
@@ -442,6 +431,6 @@ int menu()
   outtextxy(100, 170, "2.- Columnas");
   outtextxy(100, 220, "3.- Caras");
   outtextxy(100, 270, "4.- Cubo Completo");
-
-  return getch();
+  getch();
+  closegraph();
 }
